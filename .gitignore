@@ -1,0 +1,31 @@
+# Compiled Object files
+*.o
+*.out
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.a
+
+# Executables
+*.exe
+
+# C++ build files
+build/
+Debug/
+Release/
+
+# Dependency directories
+dependencies/
+vendor/
+
+# IDE-specific files and folders (Optional, based on your IDE)
+.vscode/
+.idea/
+
+# Miscellaneous
+*.log
+*.tmp
+.DS_Store
