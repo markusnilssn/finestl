@@ -96,7 +96,7 @@ namespace simpletl
 			delete[] m_Data;
 			m_Data = newData;
 		}
-		m_Data[m_Size] = aData;
+		m_Data[(int)m_Size] = aData;
 		m_Size++;
 	}
 
@@ -114,7 +114,7 @@ namespace simpletl
 			delete[] m_Data;
 			m_Data = newData;
 		}
-		m_Data[m_Size] = std::move(aData);
+		m_Data[(int)m_Size] = std::move(aData);
 		m_Size++;
 	}
 

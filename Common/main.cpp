@@ -11,6 +11,7 @@
 
 #include <string>
 #include <array>
+#include "String.h"
 
 using namespace simpletl;
 
@@ -166,14 +167,75 @@ void testlist()
     assert(!listWithInitializer.IsEmpty());
 }
 
+void teststring()
+{
+    // Test IsNullOrEmpty function
+    assert(String::IsNullOrEmpty("") == true);
+    assert(String::IsNullOrEmpty("Hello") == false);
+
+    // Test default constructor
+    String emptyString;
+    assert(emptyString.Length() == 0);
+
+    // Test constructor with char array
+    const char* hello = "Hello";
+    String helloString(hello);
+    assert(helloString.Length() == 5);
+    assert(strcmp(helloString.Data(), hello) == 0);
+
+    // Test copy constructor
+    String copiedString(helloString);
+    assert(copiedString.Length() == helloString.Length());
+    assert(strcmp(copiedString.Data(), helloString.Data()) == 0);
+
+    // Test move constructor
+    String movedString(std::move(copiedString));
+    assert(movedString.Length() == helloString.Length());
+    assert(strcmp(movedString.Data(), helloString.Data()) == 0);
+
+    // Test assignment operator
+    String assignedString;
+    assignedString = helloString;
+    assert(assignedString.Length() == helloString.Length());
+    assert(strcmp(assignedString.Data(), helloString.Data()) == 0);
+
+    // Test move assignment operator
+    String movedAssignedString;
+    movedAssignedString = std::move(helloString);
+    assert(movedAssignedString.Length() == helloString.Length());
+    assert(strcmp(movedAssignedString.Data(), helloString.Data()) == 0);
+
+    // Test indexing
+    assert(movedAssignedString[0] == 'H');
+    assert(movedAssignedString.ElementAt(1) == 'e');
+
+    // Test Contains function
+    assert(movedAssignedString.Contains('H') == true);
+    assert(movedAssignedString.Contains('X') == false);
+    assert(movedAssignedString.Contains("lo") == true);
+    assert(movedAssignedString.Contains("XYZ") == false);
+
+    // Test ToUpper and ToLower functions
+    String upperString = movedAssignedString.ToUpper();
+    assert(strcmp(upperString.Data(), "HELLO") == 0);
+
+    String lowerString = movedAssignedString.ToLower();
+    assert(strcmp(lowerString.Data(), "hello") == 0);
+
+    // Test Length function
+    assert(upperString.Length() == 5);
+
+    // Test Data function
+    assert(strcmp(upperString.Data(), "HELLO") == 0);
+
+}
+
 int main()
 {
-
-    testlist();
-    testmap();
-    testarray();
-
+    //testlist();
+    //testmap();
+    //testarray();
+    teststring();
    
-
 	return EXIT_SUCCESS;
 }

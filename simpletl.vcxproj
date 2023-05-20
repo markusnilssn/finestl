@@ -138,10 +138,12 @@
     <ClInclude Include="Common\ObservableList.h" />
     <ClInclude Include="Common\ObservableMap.h" />
     <ClInclude Include="Common\Random.h" />
+    <ClInclude Include="Common\String.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\main.cpp" />
     <ClCompile Include="Common\Random.cpp" />
+    <ClCompile Include="Common\String.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

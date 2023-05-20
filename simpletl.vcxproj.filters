@@ -42,12 +42,18 @@
     <ClInclude Include="Common\Macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Common\String.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\Random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Common\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\String.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
