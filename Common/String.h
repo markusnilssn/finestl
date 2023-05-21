@@ -2,7 +2,7 @@
 #include "Macros.h"
 #include <memory>
 
-namespace simpletl
+namespace stl
 {
 	class String
 	{

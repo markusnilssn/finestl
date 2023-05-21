@@ -8,12 +8,13 @@
 #include "ObservableMap.h"
 
 #include <cassert>
+#include <functional>
 
 #include <string>
 #include <array>
 #include "String.h"
 
-using namespace simpletl;
+using namespace stl;
 
 void testarray()
 {
@@ -228,6 +229,88 @@ void teststring()
     // Test Data function
     assert(strcmp(upperString.Data(), "HELLO") == 0);
 
+}
+
+void testobservablelist()
+{
+    // Test default constructor
+    ObservableList<int> list1;
+    assert(list1.IsEmpty());
+    assert(list1.Size() == 0);
+    assert(list1.Capacity() == 0);
+
+    // Test constructor with capacity
+    ObservableList<int> list2(5);
+    assert(list2.IsEmpty());
+    assert(list2.Size() == 0);
+    assert(list2.Capacity() == 5);
+
+    // Test constructor with initializer list
+    ObservableList<int> list3 = { 1, 2, 3, 4, 5 };
+    assert(!list3.IsEmpty());
+    assert(list3.Size() == 5);
+    assert(list3.Capacity() >= 5);
+    assert(list3.Contains(3));
+
+    // Test Add function
+    list3.Add(6);
+    assert(list3.Size() == 6);
+    assert(list3.Contains(6));
+
+    // Test Remove function
+    list3.Remove(4);
+    assert(list3.Size() == 5);
+    assert(!list3.Contains(4));
+
+    // Test RemoveAt function
+    list3.RemoveAt(2);
+    assert(list3.Size() == 4);
+    assert(list3[2] == 5);
+
+    // Test indexing
+    assert(list3[0] == 1);
+    assert(list3[3] == 5);
+
+    // Test Clear function
+    list3.Clear();
+    assert(list3.IsEmpty());
+    assert(list3.Size() == 0);
+    
+    // Test Watch and Unwatch functions
+    int watchCount = 0;
+    Action<List<int>> callback = [&watchCount](List<int> updatedList) 
+    {
+        watchCount++;
+    };
+
+    list2.Watch(callback);
+    list2.Add(10);
+    list2.Add(20);
+    assert(watchCount == 2);
+
+    list2.Unwatch(callback);
+    list2.Add(30);
+    assert(watchCount == 2); // Watch function should not be triggered after unwatching
+
+    // Test Batch and Commit functions
+    list1.Batch();
+    list1.Add(100);
+    list1.Add(200);
+    list1.Add(300);
+    assert(list1.Size() == 0); // Items are not immediately added
+
+    list1.Commit();
+    assert(list1.Size() == 3);
+
+    // Test deleted copy and move constructors/operators
+    // Uncommenting the following lines should produce compilation errors
+    /*
+    ObservableList<int> list4(list1); // Error: copy constructor is deleted
+    list2 = list1; // Error: copy assignment operator is deleted
+
+    ObservableList<int> list5(std::move(list1)); // Error: move constructor is deleted
+    list2 = std::move(list1); // Error: move assignment operator is deleted
+    */
 }
 
 int main()

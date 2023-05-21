@@ -2,7 +2,7 @@
 
 #include <random>
 
-namespace simpletl
+namespace stl
 {
 	class Random
 	{

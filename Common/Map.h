@@ -2,7 +2,7 @@
 #include <memory>
 #include "Macros.h"
 
-namespace simpletl
+namespace stl
 {
 	template <typename T, typename V>
 	class Map final

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace simpletl
+namespace stl
 {
     template<typename ReturnT, typename... Args>
     class Func

@@ -3,7 +3,7 @@
 #include "Macros.h"
 
 
-namespace simpletl
+namespace stl
 {
 	template <typename T, size_t LENGTH>
 	class Array final 

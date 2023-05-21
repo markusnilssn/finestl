@@ -129,7 +129,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Common\Action.h" />
     <ClInclude Include="Common\Array.h" />
+    <ClInclude Include="Common\Func.h" />
     <ClInclude Include="Common\ICollection.h" />
     <ClInclude Include="Common\List.h" />
     <ClInclude Include="Common\Macros.h" />
@@ -137,6 +139,7 @@
     <ClInclude Include="Common\MultiMap.h" />
     <ClInclude Include="Common\ObservableList.h" />
     <ClInclude Include="Common\ObservableMap.h" />
+    <ClInclude Include="Common\Predicate.h" />
     <ClInclude Include="Common\Random.h" />
     <ClInclude Include="Common\String.h" />
   </ItemGroup>

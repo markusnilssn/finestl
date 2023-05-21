@@ -2,7 +2,7 @@
 #include <cctype> 
 #include <cstring> 
 
-const bool simpletl::String::IsNullOrEmpty(const String& aString)
+const bool stl::String::IsNullOrEmpty(const String& aString)
 {
 	if (aString.Data() == nullptr || aString.Length() == 0)
 	{
@@ -12,7 +12,7 @@ const bool simpletl::String::IsNullOrEmpty(const String& aString)
 	return false;
 }
 
-simpletl::String::String()
+stl::String::String()
 	: m_Buffer(nullptr)
 	, m_Length(0)
 {
@@ -20,7 +20,7 @@ simpletl::String::String()
 	m_Length = 0;
 }
 
-simpletl::String::String(const char* aString)
+stl::String::String(const char* aString)
 	: m_Buffer(nullptr)
 	, m_Length(0)
 {
@@ -32,7 +32,7 @@ simpletl::String::String(const char* aString)
 	}
 }
 
-simpletl::String::String(const String& aString) 
+stl::String::String(const String& aString) 
 	: m_Buffer(nullptr)
 	, m_Length(0)
 {
@@ -45,7 +45,7 @@ simpletl::String::String(const String& aString)
 	}
 }
 
-simpletl::String::String(String&& aString)
+stl::String::String(String&& aString)
 	: m_Buffer(nullptr)
 	, m_Length(0)
 {
@@ -58,12 +58,12 @@ simpletl::String::String(String&& aString)
 	}
 }
 
-simpletl::String::~String()
+stl::String::~String()
 {
 	delete[] m_Buffer;
 }
 
-simpletl::String& simpletl::String::operator=(const String& aString)
+stl::String& stl::String::operator=(const String& aString)
 {
 	if (this != &aString)
 	{
@@ -76,7 +76,7 @@ simpletl::String& simpletl::String::operator=(const String& aString)
 	return *this;
 }
 
-simpletl::String& simpletl::String::operator=(String&& aString)
+stl::String& stl::String::operator=(String&& aString)
 {
 	if (this != &aString)
 	{
@@ -89,7 +89,7 @@ simpletl::String& simpletl::String::operator=(String&& aString)
 	return *this;
 }
 
-const char& simpletl::String::operator[](const size_t aIndex) const
+const char& stl::String::operator[](const size_t aIndex) const
 {
 	if (aIndex < m_Length)
 	{
@@ -101,7 +101,7 @@ const char& simpletl::String::operator[](const size_t aIndex) const
 	}
 }
 
-char& simpletl::String::operator[](const size_t aIndex)
+char& stl::String::operator[](const size_t aIndex)
 {
 	if (aIndex < m_Length)
 	{
@@ -113,7 +113,7 @@ char& simpletl::String::operator[](const size_t aIndex)
 	}
 }
 
-const char& simpletl::String::ElementAt(const size_t aIndex) const
+const char& stl::String::ElementAt(const size_t aIndex) const
 {
 	if (aIndex < m_Length)
 	{
@@ -125,7 +125,7 @@ const char& simpletl::String::ElementAt(const size_t aIndex) const
 	}
 }
 
-char& simpletl::String::ElementAt(const size_t aIndex)
+char& stl::String::ElementAt(const size_t aIndex)
 {
 	if (aIndex < m_Length)
 	{
@@ -137,7 +137,7 @@ char& simpletl::String::ElementAt(const size_t aIndex)
 	}
 }
 
-const bool simpletl::String::Contains(const char aLetter)
+const bool stl::String::Contains(const char aLetter)
 {
 	for (size_t i = 0; i < m_Length; i++)
 	{
@@ -150,7 +150,7 @@ const bool simpletl::String::Contains(const char aLetter)
 	return false;
 }
 
-const bool simpletl::String::Contains(const String& aString)
+const bool stl::String::Contains(const String& aString)
 {
 	const char* substr = aString.m_Buffer; // Get the buffer of the input string
 	std::size_t substrLength = aString.m_Length; // Get the length of the input string
@@ -160,9 +160,9 @@ const bool simpletl::String::Contains(const String& aString)
 	return (found != nullptr); // Return true if the substring is found, false otherwise
 }
 
-const simpletl::String simpletl::String::ToUpper()
+const stl::String stl::String::ToUpper()
 {
-	simpletl::String returnValue = *this;
+	stl::String returnValue = *this;
 	for (size_t i = 0; i < m_Length; i++)
 	{
 		returnValue[i] = std::toupper(m_Buffer[i]);
@@ -171,9 +171,9 @@ const simpletl::String simpletl::String::ToUpper()
 	return returnValue;
 }
 
-const simpletl::String simpletl::String::ToLower()
+const stl::String stl::String::ToLower()
 {
-	simpletl::String returnValue = *this;
+	stl::String returnValue = *this;
 	for (size_t i = 0; i < m_Length; i++)
 	{
 		returnValue[i] = std::tolower(m_Buffer[i]);
@@ -182,12 +182,12 @@ const simpletl::String simpletl::String::ToLower()
 	return returnValue;
 }
 
-const size_t simpletl::String::Length() const
+const size_t stl::String::Length() const
 {
 	return m_Length;
 }
 
-const char* simpletl::String::Data() const
+const char* stl::String::Data() const
 {
 	return m_Buffer;
 }

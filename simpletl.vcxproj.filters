@@ -45,6 +45,15 @@
     <ClInclude Include="Common\String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Common\Action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Predicate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\Random.cpp">

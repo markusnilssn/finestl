@@ -1,6 +1,6 @@
 #pragma once
 
-namespace simpletl
+namespace stl
 {
 	template <typename T>
 	class ICollection

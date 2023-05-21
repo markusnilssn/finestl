@@ -1,6 +1,6 @@
 #include "Random.h"
 
-namespace simpletl
+namespace stl
 {
 	Random::Random() 
 		: m_Engine(m_RandomDevice()) 

@@ -5,7 +5,7 @@
 #include <functional>
 
 
-namespace simpletl
+namespace stl
 {
 	template <typename T>
 	class List final : ICollection<T>

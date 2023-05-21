@@ -1,6 +1,6 @@
 #pragma once
 
-namespace simpletl
+namespace stl
 {
     template<typename... Args>
     class Action
@@ -9,7 +9,11 @@ namespace simpletl
         using FunctionType = void(*)(Args...);
     public:
 
-        Action(FunctionType m_Function) : m_Function(m_Function) {}
+        Action(FunctionType m_Function) 
+            : m_Function(m_Function) 
+        {
+        
+        }
 
         void operator()(Args... args) const
         {
