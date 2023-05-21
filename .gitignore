@@ -1,31 +1,32 @@
+# Prerequisites
+*.d
+
 # Compiled Object files
+*.slo
+*.lo
 *.o
-*.out
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
 
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
 
 # Compiled Static libraries
+*.lai
+*.la
 *.a
+*.lib
 
 # Executables
 *.exe
-
-# C++ build files
-build/
-Debug/
-Release/
-
-# Dependency directories
-dependencies/
-vendor/
-
-# IDE-specific files and folders (Optional, based on your IDE)
-.vscode/
-.idea/
-
-# Miscellaneous
-*.log
-*.tmp
-.DS_Store
+*.out
+*.app
